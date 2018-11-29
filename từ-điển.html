@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+</head>
+<body>
+<form >
+    <div class="box">
+        <input type="text" id="english" placeholder="Nhập từ cần tra vào đây" />
+        <input type="button" onclick="dich();" value="Dịch"/>
+        <div id="vietnam">Kết quả sẽ hiển thị ở đây</div>
+    </div>
+</form>
+<script>
+    var eng = ["cat","dog","car","red"];
+    var vie = ["mèo","chó","xe ô tô","màu đỏ"];
+    var word ;
+    var show = document.getElementById("vietnam");
+    function dich() {
+        for ( var  i = 0;i <eng.length;i++){
+
+            if (document.getElementById("english").value === eng[i]) {
+                word = vie[i];
+                show.innerHTML = word;
+                break;
+            }else{
+                show.innerHTML = "Từ của bạn cần tìm không có trong từ điển";
+            }
+        }
+    }
+
+</script>
+
+</body>
+</html>
