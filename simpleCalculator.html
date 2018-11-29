@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+</head>
+<style>
+    input[type="button"]{
+        width: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+    }
+    input#kq{
+        width: 170px;
+        margin-bottom: 10px;
+    }
+
+</style>
+<body>
+<div id="calculator"></div>
+    <input id="kq" placeholder="display result"><br/>
+    <input type="button" value="1" onclick="displaynumber(this.value)">
+    <input type="button" value="2" onclick="displaynumber(this.value)">
+    <input type="button" value="3" onclick="displaynumber(this.value)">
+    <input type="button" value="+" onclick="displaynumber(this.value)"><br/>
+    <input type="button" value="4" onclick="displaynumber(this.value)">
+    <input type="button" value="5" onclick="displaynumber(this.value)">
+    <input type="button" value="6" onclick="displaynumber(this.value)">
+    <input type="button" value="-" onclick="displaynumber(this.value)"><br/>
+    <input type="button" value="7" onclick="displaynumber(this.value)">
+    <input type="button" value="8" onclick="displaynumber(this.value)">
+    <input type="button" value="9" onclick="displaynumber(this.value)">
+    <input type="button" value="*" onclick="displaynumber(this.value)"><br/>
+    <input type="button" value="0" onclick="displaynumber(this.value)">
+    <input type="button" value="AC" onclick="AC()">
+    <input type="button" value="=" onclick="result()">
+    <input type="button" value="/" onclick="displaynumber(this.value)">
+</body>
+<script>
+    var x = " ";
+    function a(id){
+       return document.getElementById(id)
+    }
+    function displaynumber(num){
+        x += num;
+        a("kq").value = x;
+    }
+    function AC(){
+        x = " ";
+        a("kq").value = x;
+    }
+    function result(){
+        a("kq").value = eval(a("kq").value);
+    }
+
+
+</script>
+</html>
