@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VuDucPhu</title>
+</head>
+<body>
+<form>
+    <h1>Tinh-so-ngay-trong-thang</h1>
+    <input id="id1" type="number" name="tháng" placeholder=" ">
+    <p id = "month"></p>
+    <input type="button" value="Tính số ngày" onclick="thang()">
+</form>
+<script>
+function thang() {
+    var year = 0 ;
+    var i = parseInt(document.getElementById("id1").value);
+    switch( i ){
+        case 1 :
+        case 3 :
+        case 5 :
+        case 7 :
+        case 8 :
+        case 12:
+            document.getElementById("month").innerHTML = " Thang " + i + " co 31 ngay";
+            break;
+        case 4 :
+        case 6 :
+        case 9 :
+        case 11:
+            document.getElementById("month").innerHTML = " Thang " + i + " co 30 ngay";
+            break;
+        case 2 :
+            if (( year % 400 == 0) || (year % 100 != 0 && year % 4 == 0))
+                document.getElementById("month").innerHTML = " Thang "+ i + " co 29 ngay";
+            else
+                document.getElementById("month").innerHTML = " Thang "+ i + " co 28 ngay";
+            break;  }
+        }
+</script>
+
+</body>
+</html>
