@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<input type="number" id="number">
+<select id="method">
+    <option value="mtof">Meter to Feet</option>
+    <option value="ftom">Feet to Meter</option>
+</select>
+<input type="button" onclick="trans();" value="Trans">
+<div id="div">The result will appear here </div>
+<script>
+    function trans() {
+        var x = document.getElementById("number").value;
+        var result;
+        var  way =  document.getElementById("method").value;
+        if ( way == "mtof"){
+
+            result = 0.305*x;
+            document.getElementById("div").innerHTML = "The result is " + result + " feet";
+        }else if (way == "ftom"){
+            result = 3.279*x;
+            document.getElementById("div").innerHTML = "The result is " + result + " meters";
+        }
+    }
+</script>
+
+</body>
+</html>
