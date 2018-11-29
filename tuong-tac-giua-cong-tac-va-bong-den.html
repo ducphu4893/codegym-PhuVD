@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<script>
+    function electricLamp(){
+        this.getStatus = function(){
+            return this.status
+        };
+        this.turnOn = function(){
+            this.status = true;
+            document.write("The light is on " + "<br/>")
+        };
+        this.turnOff = function(){
+            this.status = false;
+            document.write("The light is off " + "<br/>")
+        }
+    }
+    function switchButton(){
+        this.getInfo = function(){
+            return this.info
+        };
+        this.switchOn = function(){
+            document.write("Switch is on " + "<br/>");
+            lamp.turnOn();
+            this.info = "On";
+        };
+        this.switchOff = function(){
+            document.write("Switch is off " + "<br/>");
+            lamp.turnOff();
+            this.info = "Off";
+        };
+    }
+    var lamp = new electricLamp();
+    var button = new switchButton();
+    for( var i = 1; i < 10; i++){
+        document.write("Try " + (i+1) + "<br/>");
+        button.switchOff();
+        button.switchOn();
+    }
+
+</script>
+
+</body>
+</html>
