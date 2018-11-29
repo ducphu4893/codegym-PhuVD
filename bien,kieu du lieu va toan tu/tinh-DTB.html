@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+    <style>
+        div { width: 300px ;
+            display : inline-block;
+        }
+    </style>
+</head>
+
+<body>
+<form>
+
+    <h1>Tính điểm trung bình</h1>
+    <div>
+    <h2>Vật lý</h2>
+    <input id="id1" type="number" name="Vật lí" placeholder="nhập điểm"></div>
+    <div>
+    <h2>Hóa học</h2>
+    <input id="id2" type="number" name="Hóa học" placeholder="nhập điểm"></div>
+    <div>
+    <h2>Sinh học</h2>
+    <input id="id3" type="number" name="Sinh học" placeholder="nhập điểm"></div>
+    <p id="mark"></p>
+    <input type="button" value="Convert" onclick="result()">
+</form>
+    <script>
+        var x, y, z, DTB;
+        function result () {
+            x = parseInt(document.getElementById("id1").value);
+            y = parseInt(document.getElementById("id2").value);
+            z = parseInt(document.getElementById("id3").value);
+        DTB = (x + y + z)/3;
+        document.getElementById("mark").innerHTML = "Ket qua la:" + DTB;
+
+    }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+</head>
+<body>
+<form>
+    <p>Tính chu vi hình tròn</p>
+    <input id ="id1" type="number" placeholder="Nhập 1 số">
+    <input type="button" value="Convert" onclick="result()">
+    <p id = "result"></p>
+</form>
+
+</body>
+<script>
+    function result(){
+        var r = document.getElementById("id1").value;
+        var perimeter = 2*3.14*r;
+        document.getElementById("result").innerHTML="Chu vi hình tròn là " + perimeter;
+    }
+</script>
+</html>
