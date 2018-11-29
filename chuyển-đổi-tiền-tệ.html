@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PhuVD</title>
+
+    <style>
+    span {
+        color: blue;
+    }
+
+    .form {
+        height: 30vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .form-group {
+        width: 20%;
+        display: inline-block;
+    }
+
+    label {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    input, select {
+        padding: 10px 15px;
+    }
+
+    h1 {
+        display: block;
+        text-align: center;
+    }
+
+    .btn {
+        border: 0;
+        padding: 10px 20px;
+        background-color: blueviolet;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: rgb(70, 17, 119);
+    }
+</style>
+</head>
+<body>
+<div class="form">
+    <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" onchange="getAmount()">
+    </div>
+    <!-- /.form-group -->
+
+    <div class="form-group">
+        <label for="fromCurrency">From Currency</label>
+        <select id="fromCurrency" onchange="getFromCurrency()">
+            <option value="USD">US DOLLAR</option>
+            <option value="AUD">AUST.DOLLAR</option>
+            <option value="CAD">CANADIAN DOLLAR</option>
+            <option value="CHF">SWISS FRANCE</option>
+            <option value="DKK">DANISH KRONE</option>
+            <option value="EUR">EURO</option>
+            <option value="GBP">BRITISH POUND</option>
+            <option value="HKD">HONGKONG DOLLAR</option>
+            <option value="INR">INDIAN RUPEE</option>
+            <option value="JPY">JAPANESE YEN</option>
+            <option value="KRW">SOUTH KOREAN</option>
+            <option value="KWD">KUWAITI DINAR</option>
+            <option value="MYR">MALAYSIAN RINGGIT</option>
+            <option value="NOK">NORWEGIAN KRONER</option>
+            <option value="RUB">RUSSIAN RUBLE</option>
+            <option value="SAR">SAUDI RIAL</option>
+            <option value="SEK">SWEDISH KRONA</option>
+            <option value="SGD">SINGAPORE DOLLAR</option>
+            <option value="THB">THAI BAHT</option>
+            <option value="VND">VIETNAM DONG</option>
+        </select>
+    </div>
+    <!-- /.form-group -->
+
+    <div class="form-group">
+        <label for="toCurrency">To Currency</label>
+        <select id="toCurrency" onchange="getToCurrency()">
+            <option value="VND">VIETNAM DONG</option>
+            <option value="AUD">AUST.DOLLAR</option>
+            <option value="CAD">CANADIAN DOLLAR</option>
+            <option value="CHF">SWISS FRANCE</option>
+            <option value="DKK">DANISH KRONE</option>
+            <option value="EUR">EURO</option>
+            <option value="GBP">BRITISH POUND</option>
+            <option value="HKD">HONGKONG DOLLAR</option>
+            <option value="INR">INDIAN RUPEE</option>
+            <option value="JPY">JAPANESE YEN</option>
+            <option value="KRW">SOUTH KOREAN</option>
+            <option value="KWD">KUWAITI DINAR</option>
+            <option value="MYR">MALAYSIAN RINGGIT</option>
+            <option value="NOK">NORWEGIAN KRONER</option>
+            <option value="RUB">RUSSIAN RUBLE</option>
+            <option value="SAR">SAUDI RIAL</option>
+            <option value="SEK">SWEDISH KRONA</option>
+            <option value="SGD">SINGAPORE DOLLAR</option>
+            <option value="THB">THAI BAHT</option>
+            <option value="USD">US DOLLAR</option>
+        </select>
+    </div>
+    <!-- /.form-group -->
+
+    <div class="form-group">
+        <button type="submit" class="btn" onclick="resultExport()">Convert</button>
+    </div>
+    <!-- /.form-group -->
+</div>
+
+<h1 id='notification'></h1>
+
+
+
+<script>
+    var amount, fromCurrency, toCurrency, result;
+    const rate = {
+        VND : 1,
+        AUD : 16406.87,
+        CAD : 17495.39,
+        CHF : 22859.72,
+        DKK : 3491.56,
+        EUR : 26246.85,
+        GBP : 29649.55,
+        HKD : 2933.86,
+        INR : 314.92,
+        JPY : 204.06,
+        KRW : 18.87,
+        KWD : 76707.59,
+        MYR : 5545.26,
+        NOK : 2730.16,
+        RUB : 354.21,
+        SAR : 6208.43,
+        SEK : 2521.22,
+        SGD : 16661.64,
+        THB : 692.21,
+        USD : 23300
+    }
+
+    function getAmount() {
+        amount = parseFloat(document.getElementById('amount').value);
+        return amount;
+    }
+
+    function getFromCurrency() {
+        fromCurrency = document.getElementById('fromCurrency').value;
+        return fromCurrency;
+    }
+
+    function getToCurrency() {
+        toCurrency = document.getElementById('toCurrency').value;
+        return toCurrency;
+    }
+
+    function resultExport() {
+        result = amount * rate[fromCurrency] / rate[toCurrency];
+        document.getElementById("notification").innerHTML = "Result: " + "<span>" + result.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + "</span> " + toCurrency;
+        return false;
+    }
+
+    window.onload = function() {
+        getFromCurrency();
+        getToCurrency();
+    };
+    </script>
+</body>
+</html>
