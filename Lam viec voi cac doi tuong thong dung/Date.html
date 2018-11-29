@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<script>
+    var birthday = new Date(1993,8,4);
+    var today = new Date();
+    var year = today.getFullYear() - birthday.getFullYear();
+    var offset = today.getTime() - birthday.getTime();
+    var month = Math.round(offset/1000/30/24/60/60);
+    var days = Math.round(offset/1000/60/60/24);
+    var hours = Math.round(offset/1000/60/60);
+    var minutes = Math.round(offset/1000/60);
+    var seconds = Math.round(offset/1000);
+    console.log(year);
+    console.log(month);
+    console.log(days);
+    console.log(hours);
+    console.log(minutes);
+    console.log(seconds);
+    console.log(offset);
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<script>
+    var random1 = Math.floor(Math.random()*11);
+    var random2 = Math.floor(Math.random()* 401);
+    var random3 = Math.floor(Math.random()* 100) + 50;
+    console.log(random1);
+    console.log(random2);
+    console.log(random3);
+    var arr = [2,5,7,9];
+    var minArr = arr[0];
+    for ( var i = 0; i < arr.length; i++){
+        if(arr[i] < minArr){
+            minArr = arr[i]
+        }
+    }
+    console.log(minArr);
+    var number = parseFloat(prompt("Enter a number"))
+    var luyThua = Math.pow(number,53);
+    console.log(luyThua)
+
+    var rad = 5;
+    var area = Math.pow(rad,2)*Math.PI
+    console.log(area)
+</script>
+
+</body>
+</html>
