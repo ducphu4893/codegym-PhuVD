@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function check(day) {
+        var patt = /[0-9]{2}[/][0-9]{2}[/][0-9]{2}/;
+        if (patt.test(day)){
+            alert("true")
+        }else{
+            alert("false")
+        }
+    }
+    var day = prompt("")
+    check(day)
+</script>
+</body>
+</html>

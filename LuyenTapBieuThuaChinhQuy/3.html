@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function check(text) {
+        var patt = /[U|E|O|A|I|u|e|o|a|i]/gm;
+        result = text.match(patt);
+        document.write("So nguyen am la " + result.length + "<br>" + "So phu am la: " + (text.length - result.length));
+    }
+    var text = prompt("Nhap chuoi")
+    check(text);
+</script>
+</body>
+</html>

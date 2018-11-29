@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkPassword(str) {
+        patt = /@1234abcd/;
+        if (patt.test(str)){
+            alert("Welcome back")
+        }else {
+            alert("Try again")
+            checkPassword(prompt())
+        }
+    }
+    var pass = prompt("Insert password");
+    checkPassword(pass) ;
+</script>
+</body>
+</html>
