@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<script>
+    var isMale = true;
+    function apple(weight) {
+        this.weight = weight;
+        this.decrease = function () {
+            this.weight--;
+            if (this.weight === 0) {
+                document.write("Apple is empty")
+            }
+        };
+        this.isEmpty = function () {
+            if (this.weight === 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+    function human(name, gender, weight){
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        this.say = function(){
+            if (apple.isEmpty() === true ){
+                document.write( "Bring me another apple")
+            }else if(this.gender === "Male"){
+                document.write(this.name + ":" + "Let me eat apple" + "<br/>");
+                apple.decrease();
+                isMale = false;
+                console.log(apple.weight);
+            }else {
+                document.write(this.name + ":" + "Let me eat too" + "<br/>");
+                apple.decrease();
+                isMale = true;
+                console.log(apple.weight)
+            }
+        }
+    }
+    var Apple = new apple(10);
+    var adam = new human("Adam","Male",80);
+    var eva = new human("Eva","Female",50);
+        do {
+            (isMale) ? adam.say() : eva.say();
+        }while (apple.weight > 0)
+</script>
+
+</body>
+</html>
