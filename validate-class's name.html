@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<script>
+    function name(str){
+        regexp = /^[CAP]+[0-9{4}]+[GHIKLM]$/;
+        if ( regexp.test(str)){
+            return true
+        }else{
+            return false}
+    }
+    var className = "C0318G";
+        console.log(name(className));
+    var className = "P0323A";
+        console.log(name(className));
+</script>
+</body>
+</html>

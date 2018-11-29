@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<script>
+    function errorAccountoOrNot(str){
+        regexp = /^[_a-z0-9]{6,}$/;
+        if (regexp.test(str)){
+            return true
+        }else{
+            return false
+        }
+    }
+    var account = "_abc123";
+        console.log(errorAccountoOrNot(account));
+    var account = "1234_";
+        console.log(errorAccountoOrNot(account));
+
+</script>
+</body>
+</html>

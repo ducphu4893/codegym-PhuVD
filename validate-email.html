@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<script>
+    function isEmailOrNot(str){
+    regexp = /^[\w\.\-]*@[\w]+(\.[\w]+)$/;
+    if( regexp.test(str)){
+        return true}
+        else{
+            return false
+    }
+    }
+    var email = "phu2638@gmail.com";
+        console.log(isEmailOrNot(email));
+    var email = "ab@gmail.";
+        console.log(isEmailOrNot(email));
+    </script>
+
+</body>
+</html>
