@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<table id="remote" border="2px">
+    <tr>
+        <td colspan="3"><input style="width: 132px; color: red" type="button" onclick="myRemote.power()" value="Power"></td>
+    </tr>
+    <tr>
+        <td><input class="button" type="button" onclick="myRemote.setChannel(1)" value="1"></td>
+        <td><input class="button" type="button" onclick="myRemote.setChannel(2)" value="2"></td>
+        <td><input class="button" type="button" onclick="myRemote.setChannel(3)" value="3"></td>
+
+    </tr>
+    <tr>
+        <td><input class="button" type="button" onclick="myRemote.setChannel(4)" value="4"></td>
+        <td><input class="button" type="button" onclick="myRemote.setChannel(5)" value="5"></td>
+        <td><input class="button"type="button" onclick="myRemote.setChannel(6)" value="6"></td>
+
+    </tr>
+    <tr>
+        <td><input class="button" type="button" onclick="myRemote.setChannel(7)" value="7"></td>
+        <td><input class="button" type="button" onclick="myRemote.setChannel(8)" value="8"></td>
+        <td><input class="button" type="button" onclick="myRemote.setChannel(9)" value="9"></td>
+    </tr>
+    <tr>
+        <td><input class="button" type="button" onclick="myRemote.nextChannel()" value="NXT"></td>
+        <td><input class="button" type="button" onclick="myRemote.prvChannel()" value="PRV"></td>
+        <td><input class="button" type="button" onclick="myRemote.setChannel(0)" value="0"></td>
+    </tr>
+    <tr>
+        <td><input class="button" type="button" onclick="myRemote.upVolume()" value="+"></td>
+        <td><input class="button" type="button" onclick="myRemote.downVolume()" value="-"></td>
+        <td><input class="button" type="button" onclick="myRemote.mute()" value="MUT"></td>
+    </tr>
+</table>
+
+
+<div> Trang thai TV hien tai: <span id="status"></span></div>
+<div id="Tv">
+    <div> Am luong hien tai: <span id="volume"></span></div>
+    <div> Kenh hien tai: <span id="channel"></span></div>
+</div>
+<script>
+    var remote = function () {
+        this.power = function () {
+            myTV.getStatus();
+            if (myTV.status === "on") {
+                document.getElementById("Tv").classList.add("display-none");
+                myTV.status = "off";
+            } else {
+                document.getElementById("Tv").classList.remove("display-none");
+                myTV.status = "on"
+            }
+        }
+        this.nextChannel = function () {
+            myTV.channel++;
+            document.getElementById("channel").innerHTML = myTV.getChannel();
+        }
+        this.prvChannel = function () {
+            myTV.channel--;
+            document.getElementById("channel").innerHTML = myTV.getChannel();
+        }
+        this.mute = function () {
+            myTV.volume = 0;
+            document.getElementById("volume").innerHTML = myTV.getVolume();
+        }
+        this.upVolume = function () {
+            if (myTV.volume < 100) {
+                myTV.volume++;
+                document.getElementById("volume").innerHTML = myTV.getVolume();
+            } else {
+                alert("Volume is max")
+            }
+        };
+        this.downVolume = function () {
+            if (myTV.volume > 0){
+                myTV.volume--;
+                document.getElementById("volume").innerHTML = myTV.getVolume();
+            }
+        };
+        this.setChannel = function (num) {
+            myTV.channel = num;
+            document.getElementById("channel").innerHTML = myTV.getChannel();
+        }
+    };
+    var Tv = function (status, volume, channel) {
+        this.volume = volume;
+        this.channel = channel;
+        this.status = status;
+        this.getChannel = function () {
+            return this.channel;
+        }
+        this.getVolume = function () {
+            return this.volume;
+        }
+        this.Channel = function () {
+            document.getElementById("channel").innerHTML = myTV.channel;
+        };
+        this.Volume = function () {
+            document.getElementById("volume").innerHTML = myTV.volume;
+        };
+        this.getStatus = function () {
+            document.getElementById("status").innerHTML = myTV.status;
+        }
+    };
+    var myRemote = new remote()
+    var myTV = new Tv("on", 4, 1);
+    myTV.Volume();
+    myTV.Channel();
+    myTV.getStatus();
+
+</script>
+</body>
+</html>
