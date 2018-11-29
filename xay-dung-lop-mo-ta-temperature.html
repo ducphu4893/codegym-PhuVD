@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<span id="F"></span>
+<span id="K"></span>
+<script>
+    function temperature(c){
+        this.C = c;
+        if(this.C < -273)
+            return alert("Error")
+        this.CalF = function(){
+            return (this.C * 1.8 + 32);
+        }
+        this.CalK = function(){
+            return (this.C + 273.15)
+        }
+    }
+    var tempC = new temperature(25);
+    var tempF = tempC.CalF();
+    var tempK = tempC.CalK();
+    document.write(tempF + "<br/>")
+    document.write(tempK)
+</script>
+</body>
+</html>

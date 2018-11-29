@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+</head>
+<body>
+<span id="S"></span>
+<span id="P"></span>
+<canvas id="myRect" width="500" height="500" style="border: 1px solid blue"></canvas>
+<script>
+    function rectangle( width,height) {
+        this.width = width;
+        this.height = height;
+        this.calArea = function () {
+            return this.width * this.height;
+        }
+        this.calPerimeter = function () {
+            return (this.width + this.height) * 2;
+        }
+        this.canvas = function () {
+            var c = document.getElementById("myRect");
+            var ctx = c.getContext("2s");
+            ctx.fillStyle = "red";
+            ctx.fillRect(0, 0, this.width, this.height)
+        }
+    }
+    let myRectangle = new rectangle(150,100);
+    document.getElementById("S").innerHTML = myRectangle.calArea() + "<br/>";
+    document.getElementById("P").innerHTML = myRectangle.calPerimeter() + "<br/>";
+    myRectangle.canvas();
+</script>
+
+</body>
+</html>
