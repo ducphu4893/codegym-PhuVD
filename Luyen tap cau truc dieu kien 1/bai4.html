@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = prompt("nhap so thu nhat");
+    var b = prompt("nhap so thu hai");
+    var c = prompt("nhap so thu ba");
+    if (a%1 != 0 || b%1 != 0 || c%1 != 0){
+        alert("moi nhap lai")
+    }else {
+        if (a>b){
+            if (a>c){
+                alert(a + " la so lon nhat")
+            }else{
+                alert(c + " la so lon nhat")
+            }
+        }else{
+            if (b>c){
+                alert(b + " la so lon nhat")
+            }else {
+                alert(c + " la so lon nhat")
+            }
+        }
+    }
+</script>
+</body>
+</html>
