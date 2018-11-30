@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var nums = [];
+    for (var i = 0; i < 100; i++) {
+        nums[i] = Math.floor(Math.random() * 101);
+    }
+    nums.sort(function (a, b) {
+        return a - b
+    });
+    function dispArr(arr) {
+        let str = '<table cellpadding="10"><tr>';
+        for (let i = 0; i < arr.length; ++i) {
+            str += `<td>${arr[i]}</td>`;
+            if (i % 10 === 9) {
+                str += "</tr><tr>";
+            }
+        }
+        str += '</table>';
+        document.write(str);
+    }
+    function binarySearch(arr, data) {
+        var mid = Math.floor(arr.length / 2);
+        console.log(arr[mid], data);
+        if (arr[mid] === data) {
+            console.log('match', arr[mid], data);
+            return mid;
+        } else if (arr[mid] < data && arr.length > 1) {
+            console.log('mid lower', arr[mid], i);
+            return binarySearch(arr.splice(mid, Number.MAX_VALUE), data);
+        } else if (arr[mid] > data && arr.length > 1) {
+            console.log('mid higher', arr[mid], data);
+            return binarySearch(arr.splice(0, mid), data);
+        } else {
+            console.log('not here', data);
+            return -1;
+        }
+    }
+    function count(arr, data) {
+        var count = 0;
+        var position = binarySearch(arr, data);
+        console.log(position);
+        if (position > -1) {
+            ++count;
+            for (var i = position - 1; i > 0; i--) {
+                if (arr[i] === data) {
+                    count++;
+                }
+                else {
+                    break;
+                }
+            }
+            for (var i = position + 1; i < arr.length; i++) {
+                if (arr[i] === data) {
+                    count++;
+                }
+                else {
+                    break;
+                }
+            }
+        }
+        return count;
+    }
+    dispArr(nums);
+    document.write("<br/>");
+    var val = parseInt(prompt("Enter a value to count: "));
+    var retVal = count(nums, val);
+    document.write("Found " + retVal + " occurrences of " + val + ".");
+</script>
+</body>
+</html>
