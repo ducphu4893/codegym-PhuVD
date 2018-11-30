@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var calLai = function (tien,month,percent) {
+        this.tien = tien;
+        this.month = month;
+        this.percent = percent;
+        this.lai = function () {
+            var a = this.tien* Math.pow((1+this.percent/100), this.month);
+            var result = (this.tien)*((1+this.percent/100)^(this.month));
+            alert("Tien ca goc lan lai sau " + this.month + " thang la: " + a);
+        }
+        this.setTien = function (tien) {
+            this.tien = tien;
+        }
+        this.setThang = function (month) {
+            this.month = month;
+        }
+        this.setPercent = function (percent) {
+            this.percent = percent;
+        }
+    }
+    var a = prompt("Nhap so tien gui");
+    var b = prompt("Nhap so thang gui");
+    var c = prompt("Nhap lai suat theo thang (theo %)");
+    if (a %1 != 0 ){
+        alert("moi nhap lai");
+    }else if (b%1!=0) {
+        alert("moi nhap lai");
+    }else if (c%1 !=0){
+        alert("moi nhap lai")
+    }else {
+        var tienLai = new calLai();
+        tienLai.setTien(a);
+        tienLai.setThang(b);
+        tienLai.setPercent(c);
+        tienLai.lai();
+    }
+</script>
+</body>
+</html>

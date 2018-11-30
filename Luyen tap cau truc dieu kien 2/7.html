@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a=parseFloat (prompt("nhap a","1"));
+    var b=parseFloat (prompt("nhap b","1"));
+    var c=parseFloat (prompt("nhap c","1"));
+    var delta=((b*b)-(4*a*c));
+    if (delta==0)
+    {
+        alert ("phuong trinh co nghiem kep x1 = x2 = " +(-b/2/a) +" ");
+
+    }
+    else
+    {
+        if (delta>0)
+        {
+            alert ("phuong trinh co nghiem x1 = "+ ((-b-Math.sqrt(delta))/2/a)+", x2 = "+ ((-b+Math.sqrt(delta))/2/a)+" ");
+
+        }
+        else
+        {
+            alert ("phuong trinh vo nghiem");
+        }
+    }
+</script>
+</body>
+</html>
